@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   PackagePlus, ArrowLeft, Save, TrendingUp, TrendingDown,
-  AlertTriangle, CheckCircle, History, Settings2,
-  ShoppingBag, Box, ChevronDown, RefreshCw
+  AlertTriangle, History, Settings2,
+  ShoppingBag, Box, RefreshCw
 } from 'lucide-react';
 import { supabase } from '../supabase';
 

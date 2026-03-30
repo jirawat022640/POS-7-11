@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  PackagePlus, ArrowLeft, Save, Box, Edit, Trash2, 
+  PackagePlus, ArrowLeft, Box, Edit, Trash2, 
   History, BarChart3, Download, Undo2, Printer, 
   Lock, Settings, AlertTriangle, Warehouse
 } from 'lucide-react';
@@ -22,7 +22,6 @@ export default function AdminScreen() {
   const [form, setForm] = useState({ barcode: '', name: '', price: '', stock_qty: '', cost_price: '', min_stock: '5' });
   const [editingId, setEditingId] = useState<number | null>(null);
   const [editingOldStock, setEditingOldStock] = useState<number>(0); // เก็บสต็อกเดิมก่อนแก้
-  const [isSaving, setIsSaving] = useState(false);
   const [printBarcodeProduct, setPrintBarcodeProduct] = useState<any>(null);
 
   const pinInputRef = useRef<HTMLInputElement>(null);
@@ -53,7 +52,7 @@ export default function AdminScreen() {
     if (!form.barcode || !form.name || !form.price || !form.stock_qty) {
       alert('กรุณากรอกข้อมูลให้ครบครับ'); return;
     }
-    setIsSaving(true);
+    
 
     if (editingId) {
       const newStock = Number(form.stock_qty);
@@ -90,7 +89,6 @@ export default function AdminScreen() {
       if (!error) { alert('✅ เพิ่มสำเร็จ!'); resetForm(); fetchData(); }
       else alert('❌ บาร์โค้ดอาจซ้ำกัน');
     }
-    setIsSaving(false);
   };
 
   const handleEditClick = (product: any) => {
