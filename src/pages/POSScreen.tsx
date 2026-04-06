@@ -11,14 +11,14 @@ import generatePayload from 'promptpay-qr';
 
 export default function POSScreen() {
   const [shift, setShift] = useState<{ cashier: string; startCash: number; startTime: Date } | null>(null);
-  const [shiftForm, setShiftForm] = useState({ cashier: 'บิว', startCash: '1000' });
+  const [shiftForm, setShiftForm] = useState({ cashier: '', startCash: '' });
   const [shiftStats, setShiftStats] = useState({ cashSales: 0, promptpaySales: 0, bills: 0 });
   const [closeShiftModal, setCloseShiftModal] = useState(false);
 
   const [dbProducts, setDbProducts] = useState<any[]>([]);
   const [dbMembers, setDbMembers] = useState<any[]>([]);
   const [storeSettings, setStoreSettings] = useState({
-    store_name: 'EZ-POS', store_address: '', store_phone: '', promptpay_no: '', tax_id: '',
+    store_name: 'กำลังโหลดข้อมูล...', store_address: '', tax_id: '',
     receipt_footer: '*** ขอบคุณที่ใช้บริการ ***'
   });
 
